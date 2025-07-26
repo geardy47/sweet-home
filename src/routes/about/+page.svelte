@@ -1,6 +1,7 @@
-<h1>About</h1>
+<p class="title">About</p>
 <p>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, expedita
-	commodi unde quos cum doloribus cupiditate autem ad obcaecati inventore quae
-	odit nostrum perferendis numquam, cumque iusto natus et dolores.
+	Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit
+	molestiae minus aperiam exercitationem assumenda dolores blanditiis labore
+	totam fuga, corporis impedit est ipsa cupiditate error quaerat reiciendis
+	rerum ullam.
 </p>

@@ -35,7 +35,9 @@
   "dependencies": {
     "@fontsource/atkinson-hyperlegible": "^5.2.5",
     "@fontsource/jetbrains-mono": "^5.2.5",
-    "lucide-svelte": "^0.485.0",
-    "open-props": "^1.7.14"
+    "@iconify-json/fa7-brands": "^1.2.0",
+    "@iconify-json/fa7-solid": "^1.2.0",
+    "open-props": "^1.7.14",
+    "unplugin-icons": "^22.1.0"
   }
 }

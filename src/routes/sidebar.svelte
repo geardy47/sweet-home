@@ -1,12 +1,4 @@
-<script lang="ts">
-	import * as config from '$lib/config';
-</script>
-
 <nav>
-	<a href="/" class="title">
-		<b>{config.title}</b>
-	</a>
-
 	<ul class="links">
 		<li>
 			<a href="/about">About</a>
@@ -18,28 +10,19 @@
 			<a href="/projects">Projects</a>
 		</li>
 	</ul>
-
-	<button>Toggle</button>
 </nav>
 
 <style>
 	nav {
-		padding-block: var(--size-7);
-
 		@media (min-width: 768px) {
-			/* display: grid; */
-			display: flex;
-			justify-content: space-between;
+			display: grid;
+			gap: var(--size-10);
 		}
 
 		.links {
-			margin-block: var(--size-7);
-
 			@media (min-width: 768px) {
-				/* display: grid; */
-				display: flex;
-				gap: var(--size-7);
-				margin-block: 0;
+				display: grid;
+				gap: var(--size-3);
 			}
 		}
 
