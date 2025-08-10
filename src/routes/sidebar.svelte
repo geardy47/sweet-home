@@ -1,4 +1,9 @@
 <nav>
+	<header>
+		<a href="/" class="title">
+			<b>Genta Shandi</b>
+		</a>
+	</header>
 	<ul class="links">
 		<li>
 			<a href="/about">About</a>
@@ -15,15 +20,29 @@
 <style>
 	nav {
 		@media (min-width: 768px) {
-			display: grid;
+			display: flex;
+			flex: 1;
+			position: sticky;
+			top: 0;
+			overflow-y: auto;
+			flex-direction: column;
 			gap: var(--size-10);
+			padding-top: var(--size-fluid-6);
 		}
 
 		.links {
 			@media (min-width: 768px) {
-				display: grid;
+				display: flex;
+				position: relative;
+				flex-direction: column;
 				gap: var(--size-3);
 			}
+		}
+
+		.title {
+			color: inherit;
+			text-decoration: none;
+			font-size: var(--font-size-fluid-1);
 		}
 
 		a {

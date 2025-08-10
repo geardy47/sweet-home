@@ -7,76 +7,53 @@
 	import 'open-props/buttons';
 	import '../app.css';
 
-	import * as config from '$lib/config';
+	// import * as config from '$lib/config';
 
 	let { children } = $props();
 	// let { children, data } = $props()
 </script>
 
-<div class="layout">
-	<div class="header">
-		<a href="/" class="title">
-			<b>{config.title}</b>
-		</a>
-	</div>
+<div class="data">
+	<div class="layout">
+		<aside>
+			<Sidebar />
+		</aside>
 
-	<div class="sidebar">
-		<Sidebar />
-	</div>
-
-	<main>
-		{@render children?.()}
-	</main>
-
-	<div class="footer">
-		<Footer />
+		<main>
+			<div class="content">
+				{@render children?.()}
+			</div>
+			<div class="footer">
+				<Footer />
+			</div>
+		</main>
 	</div>
 </div>
 
 <style>
-	.layout {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		grid-template-rows: auto 1fr auto;
-		grid-template-areas:
-			'header header'
-			'sidebar main'
-			'sidebar footer';
+	.data {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
+	.layout {
+		display: flex;
 		min-height: 100%;
+		width: 100%;
 		box-sizing: border-box;
 
-		padding-inline: var(--size-fluid-4);
-		padding-block: var(--size-fluid-6);
-
-		@media (min-width: 1440px) {
-			padding-inline: var(--size-fluid-10);
-			padding-block: var(--size-fluid-6);
-		}
-
-		.title {
-			color: inherit;
-			text-decoration: none;
-			font-size: var(--font-size-fluid-1);
-		}
-
-		.header {
-			grid-area: header;
-		}
-
 		main {
-			grid-area: main;
-			padding-block: var(--size-10);
-			overflow-y: auto;
+			padding-block: var(--size-fluid-6);
+			margin-right: auto;
 		}
 
-		.sidebar {
-			padding-block: var(--size-10);
-			grid-area: sidebar;
-		}
-
-		.footer {
-			grid-area: footer;
+		aside {
+			margin-left: auto;
+			position: sticky;
+			top: 0;
+			align-self: flex-start;
+			padding-right: var(--size-fluid-6);
 		}
 	}
 </style>
