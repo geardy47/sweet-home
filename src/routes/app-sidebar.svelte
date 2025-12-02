@@ -8,17 +8,17 @@
 	const items = [
 		{
 			title: 'Home',
-			url: '/about',
+			url: 'about',
 			icon: HouseIcon
 		},
 		{
 			title: 'Writings',
-			url: '/writings',
+			url: 'writings',
 			icon: NotebookIcon
 		},
 		{
 			title: 'Projects',
-			url: '/projects',
+			url: 'projects',
 			icon: TargetIcon
 		}
 	];
@@ -30,7 +30,7 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton class="data-[slot=sidebar-menu-button]:!p-1.5">
 					{#snippet child({ props })}
-						<a href="/about" {...props}>
+						<a href="about" {...props}>
 							<span class="text-base font-semibold">Genta Shandi</span>
 						</a>
 					{/snippet}

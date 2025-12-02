@@ -3,8 +3,6 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 import { mdsvex } from 'mdsvex';
 
-const dev = process.argv.includes('dev');
-
 /** @type {import('mdsvex').MdsvesOptions} */
 const mdsvexOptions = {
 	extensions: ['.md']
@@ -29,7 +27,7 @@ const config = {
 			'@/*': './src/lib/'
 		},
 		paths: {
-			base: dev ? '' : '/sweet-home'
+			base: process.argv.includes('dev') ? '' : '/sweet-home'
 		}
 	}
 };
