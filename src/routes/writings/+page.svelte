@@ -8,7 +8,10 @@
 
 	let posts = $derived(data.posts);
 
-	let activeCategory = $derived($page.url.searchParams.get('category'));
+	let activeCategory = $state(null);
+	$effect(() => {
+		activeCategory = $page.url.searchParams.get('category');
+	});
 
 	let filteredPosts = $derived(
 		activeCategory
