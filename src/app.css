@@ -89,10 +89,3 @@ h6:hover .heading-anchor {
 	opacity: 1;
 }
 
-/* External link indicator */
-a[href^='http']:not([href*='gentashandi.com'])::after {
-	content: ' ↗';
-	font-size: 0.75em;
-	vertical-align: super;
-	line-height: 0;
-}
