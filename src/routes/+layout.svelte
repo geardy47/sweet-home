@@ -1,32 +1,19 @@
 <script lang="ts">
-	import { ModeWatcher, setMode } from 'mode-watcher';
-	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
+	import { ModeWatcher } from 'mode-watcher';
 
 	import './layout.css';
-	import AppSidebar from './app-sidebar.svelte';
+	import '../app.css';
+	import Nav from './nav.svelte';
 	import Footer from './footer.svelte';
-	// import * as config from '$lib/config';
 
-	setMode('dark');
 	let { children } = $props();
 </script>
 
 <ModeWatcher />
-<Sidebar.Provider>
-	<AppSidebar />
+<div class="mx-auto max-w-prose px-4">
+	<Nav />
 	<main>
-		<div class="content">
-			<Sidebar.Trigger />
-			{@render children?.()}
-		</div>
-		<div class="footer">
-			<Footer />
-		</div>
+		{@render children?.()}
 	</main>
-	<!-- <main> -->
-	<!--   {@render children?.()} -->
-	<!-- </main> -->
-</Sidebar.Provider>
-
-<style>
-</style>
+	<Footer />
+</div>
