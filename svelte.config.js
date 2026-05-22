@@ -45,7 +45,7 @@ const config = {
 			'@/*': './src/lib/'
 		},
 		paths: {
-			base: process.argv.includes('dev') ? '' : '/sweet-home'
+			base: process.env.NODE_ENV === 'development' ? '' : '/sweet-home'
 		}
 	}
 };
