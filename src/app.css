@@ -62,7 +62,7 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-bg text-fg;
+		@apply bg-bg text-fg transition-colors duration-300;
 	}
 }
 
