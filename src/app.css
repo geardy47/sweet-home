@@ -65,3 +65,34 @@
 		@apply bg-bg text-fg;
 	}
 }
+
+/* Heading anchor links — hidden by default, visible on hover */
+.heading-anchor {
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+	margin-left: 0.2em;
+	font-weight: 400;
+	color: var(--muted);
+}
+
+.heading-anchor:focus-visible {
+	opacity: 1;
+}
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+	opacity: 1;
+}
+
+/* External link indicator */
+a[href^='http']:not([href*='gentashandi.com'])::after {
+	content: ' ↗';
+	font-size: 0.75em;
+	vertical-align: super;
+	line-height: 0;
+}

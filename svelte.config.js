@@ -2,10 +2,28 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 import { mdsvex } from 'mdsvex';
+import slug from 'rehype-slug';
+import autolink from 'rehype-autolink-headings';
 
 /** @type {import('mdsvex').MdsvesOptions} */
 const mdsvexOptions = {
-	extensions: ['.md']
+	extensions: ['.md'],
+	rehypePlugins: [
+		slug,
+		[
+			autolink,
+			{
+				behavior: 'append',
+				content: {
+					type: 'element',
+					tagName: 'span',
+					properties: { className: ['anchor-icon'] },
+					children: [{ type: 'text', value: '#' }]
+				},
+				properties: { className: ['heading-anchor'] }
+			}
+		]
+	]
 };
 
 /** @type {import('@sveltejs/kit').Config} */

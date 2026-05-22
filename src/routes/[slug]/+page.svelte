@@ -12,44 +12,17 @@
 
 <article>
 	<hgroup>
-		<h1>{data.meta.title}</h1>
-		<p>Publised at {formatDate(data.meta.date)}</p>
+		<h1 class="text-3xl font-bold capitalize">{data.meta.title}</h1>
+		<p class="mt-2 text-sm text-muted">Published at {formatDate(data.meta.date)}</p>
 	</hgroup>
 
-	<div class="tags">
+	<div class="not-prose mt-7 flex gap-3">
 		{#each data.meta.categories as category (category)}
-			<span class="surface-4">&num;{category}</span>
+			<span class="rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground">&num;{category}</span>
 		{/each}
 	</div>
 
-	<div class="prose">
+	<div class="prose dark:prose-invert max-w-none">
 		<data.content />
 	</div>
 </article>
-
-<style>
-	article {
-		max-inline-size: var(--size-content-3);
-		margin-inline: auto;
-
-		h1 {
-			text-transform: capitalize;
-		}
-
-		h1 + p {
-			margin-top: var(--size-2);
-			color: var(--text-2);
-		}
-
-		.tags {
-			display: flex;
-			gap: var(--size-3);
-			margin-top: var(--size-7);
-
-			> * {
-				padding: var(--size-2) var(--size-3);
-				border-radius: var(--radius-round);
-			}
-		}
-	}
-</style>
