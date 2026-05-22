@@ -19,7 +19,7 @@
 <article class="prose dark:prose-invert max-w-none">
 	<!-- Header: photo placeholder + name -->
 	<div class="not-prose flex items-center gap-5">
-		<div class="h-24 w-24 shrink-0 rounded-full bg-accent" aria-label="Photo placeholder" />
+		<div class="h-24 w-24 shrink-0 rounded-full bg-accent" role="img" aria-label="Photo placeholder"></div>
 		<div>
 			<h1 class="text-3xl font-bold">{config.author}</h1>
 			<p class="text-muted">{config.description}</p>
@@ -67,7 +67,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each interviews as interview}
+				{#each interviews as interview (interview.publication)}
 					<tr class="border-b border-border">
 						<td class="py-2 pr-4">{interview.publication}</td>
 						<td class="py-2 pr-4">{interview.title}</td>

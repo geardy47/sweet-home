@@ -1,4 +1,4 @@
-export type Categories = 'flutter' | 'sveltekit' | 'svelte';
+export type Categories = string;
 
 export type Post = {
 	title: string;

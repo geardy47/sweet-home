@@ -1,11 +1,20 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { formatDate } from '$lib/utils';
+	import { page } from '$app/stores';
+	import { formatDate, parseDate } from '$lib/utils';
 	import * as config from '$lib/config';
 
 	let { data } = $props();
 
 	let posts = $derived(data.posts);
+
+	let activeCategory = $derived($page.url.searchParams.get('category'));
+
+	let filteredPosts = $derived(
+		activeCategory
+			? posts.filter((p) => p.categories.includes(activeCategory))
+			: posts
+	);
 
 	let categories = $derived.by(() => {
 		const map = new Map<string, number>();
@@ -18,9 +27,9 @@
 	});
 
 	let groupedByYear = $derived.by(() => {
-		const map = new Map<number, typeof posts>();
-		for (const post of posts) {
-			const year = new Date(post.date).getFullYear();
+		const map = new Map<number, typeof filteredPosts>();
+		for (const post of filteredPosts) {
+			const year = parseDate(post.date).getFullYear();
 			if (!map.has(year)) map.set(year, []);
 			map.get(year)!.push(post);
 		}
@@ -40,7 +49,7 @@
 		<div class="not-prose flex flex-wrap gap-2">
 			{#each categories as [category, count]}
 				<a
-					href="{base}/?category={encodeURIComponent(category)}"
+					href="?category={encodeURIComponent(category)}"
 					class="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground no-underline"
 				>
 					{category}
@@ -54,6 +63,10 @@
 	{#if posts.length === 0}
 		<p class="not-prose text-muted py-12 text-center">
 			Nothing written yet. Check back later.
+		</p>
+	{:else if filteredPosts.length === 0}
+		<p class="not-prose text-muted py-12 text-center">
+			No posts in &ldquo;{activeCategory}&rdquo; category.
 		</p>
 	{:else}
 		<!-- Posts grouped by year -->

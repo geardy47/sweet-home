@@ -30,7 +30,7 @@
 		<div class="flex flex-wrap gap-2">
 			{#each categories as [category, count]}
 				<a
-					href="{base}/?category={encodeURIComponent(category)}"
+					href="{base}/writings?category={encodeURIComponent(category)}"
 					class="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground no-underline"
 				>
 					{category}
