@@ -10,6 +10,6 @@ export async function load({ params }) {
 		};
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (e) {
-		error(404, 'Could not find ${params.slug}');
+		error(404, `Could not find ${params.slug}`);
 	}
 }
