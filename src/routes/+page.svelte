@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import * as config from '$lib/config';
-	import Github from '~icons/fa7-brands/github';
-	import Linkedin from '~icons/fa7-brands/linkedin';
-	import Envelope from '~icons/fa7-solid/envelope';
 
 	const interviews = [
 		{ publication: 'Flutter Dev Weekly', title: 'Building Cross-Platform Apps at Scale', date: '2024-08-15' },
@@ -17,28 +14,6 @@
 </svelte:head>
 
 <article class="prose dark:prose-invert max-w-none">
-	<!-- Header: photo placeholder + name -->
-	<div class="not-prose flex items-center gap-5">
-		<div class="h-24 w-24 shrink-0 rounded-full bg-accent" role="img" aria-label="Photo placeholder"></div>
-		<div>
-			<h1 class="text-3xl font-bold">{config.author}</h1>
-			<p class="text-muted">{config.description}</p>
-		</div>
-	</div>
-
-	<!-- Social links -->
-	<div class="not-prose flex items-center gap-4">
-		<a href={config.social.github} class="text-muted hover:text-fg transition-colors" aria-label="GitHub">
-			<Github />
-		</a>
-		<a href={config.social.linkedin} class="text-muted hover:text-fg transition-colors" aria-label="LinkedIn">
-			<Linkedin />
-		</a>
-		<a href={config.social.email} class="text-muted hover:text-fg transition-colors" aria-label="Email">
-			<Envelope />
-		</a>
-	</div>
-
 	<!-- Bio -->
 	<p>
 		I'm a mobile developer passionate about crafting intuitive, performant applications
