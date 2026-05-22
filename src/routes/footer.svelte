@@ -14,13 +14,13 @@
 			<Rss size={16} />
 		</a>
 		<a href="mailto:gentashandi@gmail.com" class="text-muted hover:text-fg transition-colors" aria-label="Email">
-			<Envelope />
+			<Envelope class="size-4" />
 		</a>
 		<a href="https://github.com/geardy47" class="text-muted hover:text-fg transition-colors" aria-label="GitHub">
-			<Github />
+			<Github class="size-4" />
 		</a>
 		<a href="https://linkedin.com/in/gentashandi/" class="text-muted hover:text-fg transition-colors" aria-label="LinkedIn">
-			<Linkedin />
+			<Linkedin class="size-4" />
 		</a>
 	</div>
 </footer>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { ModeWatcher } from 'mode-watcher';
 
-	import './layout.css';
 	import '../app.css';
+	import './layout.css';
 	import Nav from './nav.svelte';
 	import Footer from './footer.svelte';
 

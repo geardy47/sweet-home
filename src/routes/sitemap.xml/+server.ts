@@ -17,7 +17,7 @@ export async function GET() {
 	const posts = await getPosts();
 	const siteUrl = url.replace(/\/$/, '');
 
-	const urls = [
+	const urls: Array<{ loc: string; priority: string; lastmod?: string }> = [
 		{ loc: `${siteUrl}${base}`, priority: '1.0' },
 		{ loc: `${siteUrl}${base}/writings`, priority: '0.8' },
 		{ loc: `${siteUrl}${base}/projects`, priority: '0.8' },

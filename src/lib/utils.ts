@@ -19,7 +19,8 @@ export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & {
 type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
 
 export function parseDate(date: string): Date {
-	return new Date(date.replaceAll('-', '/'));
+	const [year, month, day] = date.split('-').map(Number);
+	return new Date(year, month - 1, day);
 }
 
 export function formatDate(

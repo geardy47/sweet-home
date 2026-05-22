@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { formatDate, parseDate } from '$lib/utils';
 	import * as config from '$lib/config';
 
@@ -8,14 +8,14 @@
 
 	let posts = $derived(data.posts);
 
-	let activeCategory = $state(null);
+	let activeCategory = $state<string | null>(null);
 	$effect(() => {
-		activeCategory = $page.url.searchParams.get('category');
+		activeCategory = page.url.searchParams.get('category');
 	});
 
 	let filteredPosts = $derived(
-		activeCategory
-			? posts.filter((p) => p.categories.includes(activeCategory))
+		activeCategory !== null
+			? posts.filter((p) => p.categories.includes(activeCategory!))
 			: posts
 	);
 
