@@ -5,7 +5,7 @@ import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import autolink from 'rehype-autolink-headings';
 
-/** @type {import('mdsvex').MdsvesOptions} */
+/** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
 	rehypePlugins: [
