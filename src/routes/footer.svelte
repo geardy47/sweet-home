@@ -10,7 +10,7 @@
 <footer class="mt-16 flex items-center justify-between border-t border-border pt-7 pb-4">
 	<p class="text-muted text-sm">{config.title} &copy; {new Date().getFullYear()}</p>
 	<div class="flex items-center gap-4">
-		<a href={base + "/api/posts"} class="text-muted hover:text-fg transition-colors" aria-label="RSS feed">
+		<a href={base + "/feed.xml"} class="text-muted hover:text-fg transition-colors" aria-label="RSS feed">
 			<Rss size={16} />
 		</a>
 		<a href="mailto:gentashandi@gmail.com" class="text-muted hover:text-fg transition-colors" aria-label="Email">

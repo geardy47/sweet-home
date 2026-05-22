@@ -11,4 +11,3 @@ export const social = {
 	linkedin: 'https://linkedin.com/in/gentashandi/',
 	email: 'mailto:gentashandi@gmail.com'
 } as const;
-export const rss = '/api/posts';
