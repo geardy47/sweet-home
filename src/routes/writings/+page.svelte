@@ -44,8 +44,8 @@
 	<title>Writings — {config.title}</title>
 </svelte:head>
 
-<section class="prose dark:prose-invert max-w-none">
-	<h1>Writings</h1>
+<section class="prose max-w-none">
+	<h1 class="text-fg">Writings</h1>
 
 	<!-- Category Cloud -->
 	{#if categories.length > 0}
@@ -53,10 +53,10 @@
 			{#each categories as [category, count]}
 				<a
 					href="?category={encodeURIComponent(category)}"
-					class="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground no-underline"
+					class="inline-flex items-center gap-1 rounded-full border border-border bg-accent px-3 py-1 text-sm text-accent-foreground no-underline"
 				>
 					{category}
-					<span class="text-muted text-xs">({count})</span>
+					<span class="text-xs opacity-60">({count})</span>
 				</a>
 			{/each}
 		</div>

@@ -33,8 +33,8 @@
 	<title>Projects — {config.title}</title>
 </svelte:head>
 
-<section class="prose dark:prose-invert max-w-none">
-	<h1>Projects</h1>
+<section class="prose max-w-none">
+	<h1 class="text-fg">Projects</h1>
 
 	<div class="not-prose space-y-5">
 		{#each projects as project}
@@ -52,7 +52,7 @@
 				<p class="text-muted mt-1 text-sm leading-relaxed">{project.description}</p>
 				<div class="mt-3 flex flex-wrap gap-2">
 					{#each project.tags as tag}
-						<span class="rounded-full bg-accent px-3 py-0.5 text-xs text-accent-foreground">{tag}</span>
+						<span class="rounded-full border border-border bg-accent px-3 py-0.5 text-xs text-accent-foreground">{tag}</span>
 					{/each}
 				</div>
 			</article>

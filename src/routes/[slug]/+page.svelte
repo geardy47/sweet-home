@@ -22,7 +22,7 @@
 		</a>
 
 		<hgroup>
-			<h1 class="text-4xl font-bold capitalize leading-tight">{data.meta.title}</h1>
+			<h1 class="text-4xl font-bold capitalize leading-tight text-fg">{data.meta.title}</h1>
 			<p class="mt-3 text-sm text-muted">
 				Published on {formatDate(data.meta.date)}
 			</p>
@@ -33,7 +33,7 @@
 				{#each data.meta.categories as category (category)}
 					<a
 						href="{base}/writings?category={encodeURIComponent(category)}"
-						class="rounded-full bg-accent px-3 py-1 text-sm text-accent-foreground no-underline transition-colors hover:opacity-80"
+						class="rounded-full border border-border bg-accent px-3 py-1 text-sm text-accent-foreground no-underline transition-colors hover:opacity-80"
 					>
 						&num;{category}
 					</a>
@@ -42,7 +42,7 @@
 		{/if}
 	</header>
 
-	<div class="prose dark:prose-invert max-w-none">
+	<div class="prose max-w-none">
 		<data.content />
 	</div>
 

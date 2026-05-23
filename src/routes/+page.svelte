@@ -13,7 +13,7 @@
 	<title>{config.title}</title>
 </svelte:head>
 
-<article class="prose dark:prose-invert max-w-none">
+<article class="prose max-w-none">
 	<!-- Bio -->
 	<p>
 		I'm a mobile developer passionate about crafting intuitive, performant applications
