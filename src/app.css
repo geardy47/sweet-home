@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
 	--color-bg: var(--bg);
@@ -42,7 +42,7 @@
 .dark {
 	--bg: #100f0f;
 	--fg: #fffcf0;
-	--muted: #6f6e69;
+	--muted: #878580;
 	--border: #2e2e2e;
 	--primary: #6fade8;
 	--primary-foreground: #100f0f;

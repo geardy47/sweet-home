@@ -9,7 +9,7 @@
 	let { children } = $props();
 </script>
 
-<ModeWatcher />
+<ModeWatcher disableHeadScriptInjection />
 <div class="mx-auto max-w-prose px-4">
 	<Nav />
 	<main>
