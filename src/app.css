@@ -89,3 +89,42 @@ h5:hover .heading-anchor,
 h6:hover .heading-anchor {
 	opacity: 1;
 }
+
+/* ---- Shiki syntax highlighting ---- */
+
+/* Light theme (default) */
+.shiki {
+	color: var(--shiki-light);
+	background-color: var(--shiki-light-bg);
+	border: 1px solid var(--border);
+	border-radius: 0.5rem;
+	overflow-x: auto;
+	padding: 1rem;
+	font-size: 0.875rem;
+	line-height: 1.7;
+}
+
+.shiki code {
+	display: block;
+	min-width: max-content;
+}
+
+.shiki .line {
+	display: inline-block;
+	min-height: 1.25em;
+	width: 100%;
+}
+
+/* Dark theme override */
+.dark .shiki {
+	color: var(--shiki-dark);
+	background-color: var(--shiki-dark-bg);
+}
+
+/* Inline code stays prose-styled */
+:not(pre) > code {
+	font-size: 0.875em;
+	background-color: var(--accent);
+	padding: 0.15em 0.3em;
+	border-radius: 0.25rem;
+}

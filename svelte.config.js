@@ -4,11 +4,22 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import autolink from 'rehype-autolink-headings';
+import rehypeShiki from '@shikijs/rehype';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
 	rehypePlugins: [
+		[
+			rehypeShiki,
+			{
+				themes: {
+					light: 'github-light-default',
+					dark: 'github-dark-default'
+				},
+				defaultColor: false
+			}
+		],
 		slug,
 		[
 			autolink,
