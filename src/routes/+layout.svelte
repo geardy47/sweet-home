@@ -10,10 +10,10 @@
 </script>
 
 <ModeWatcher disableHeadScriptInjection />
-<div class="mx-auto max-w-prose px-4 flex min-h-[100dvh] flex-col">
-	<Nav class="shrink-0" />
-	<main class="flex-1 pb-16">
+<div class="max-w-prose px-4 mx-auto flex min-h-[100dvh] flex-col">
+	<div class="shrink-0"><Nav /></div>
+	<main class="pb-16 flex-1">
 		{@render children?.()}
 	</main>
-	<Footer class="shrink-0" />
+	<div class="shrink-0"><Footer /></div>
 </div>

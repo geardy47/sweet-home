@@ -15,18 +15,22 @@
 <article>
 	<header class="mb-6 sm:mb-10">
 		<hgroup>
-			<h1 class="text-3xl sm:text-4xl font-bold capitalize leading-tight text-fg">{data.meta.title}</h1>
+			<h1
+				class="text-3xl sm:text-4xl font-bold leading-tight text-fg capitalize"
+			>
+				{data.meta.title}
+			</h1>
 			<p class="mt-3 text-sm text-muted">
 				Published on {formatDate(data.meta.date)}
 			</p>
 		</hgroup>
 
 		{#if data.meta.categories?.length}
-			<div class="not-prose mt-5 flex flex-wrap gap-2">
+			<div class="not-prose mt-5 gap-2 flex flex-wrap">
 				{#each data.meta.categories as category (category)}
 					<a
 						href="{base}/writings?category={encodeURIComponent(category)}"
-						class="rounded-full border border-border bg-accent px-3 py-1 text-sm text-accent-foreground no-underline transition-colors hover:opacity-80"
+						class="border-border bg-accent px-3 py-1 text-sm text-accent-foreground rounded-full border no-underline transition-colors hover:opacity-80"
 					>
 						#{category}
 					</a>
@@ -39,10 +43,10 @@
 		<data.content />
 	</div>
 
-	<nav class="not-prose mt-10 sm:mt-16 border-t border-border pt-6 sm:pt-8">
+	<nav class="not-prose mt-10 sm:mt-16 border-border pt-6 sm:pt-8 border-t">
 		<a
 			href="{base}/writings"
-			class="text-muted hover:text-primary inline-flex items-center gap-1 text-sm no-underline transition-colors"
+			class="text-muted hover:text-primary gap-1 text-sm inline-flex items-center no-underline transition-colors"
 		>
 			&larr; Back to writings
 		</a>

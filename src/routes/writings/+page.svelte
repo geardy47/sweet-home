@@ -13,12 +13,13 @@
 		activeCategory = page.url.searchParams.get('category');
 	});
 
-	let filteredPosts = $derived(
-		(activeCategory
-			? posts.filter((p) => p.categories.includes(activeCategory))
-			: posts
-		).sort((a, b) => b.date.localeCompare(a.date))
-	);
+	let filteredPosts = $derived.by(() => {
+		const cat = activeCategory;
+		const filtered = cat
+			? posts.filter((p) => p.categories.includes(cat))
+			: posts;
+		return filtered.sort((a, b) => b.date.localeCompare(a.date));
+	});
 
 	let categories = $derived.by(() => {
 		const map = new Map<string, number>();
@@ -41,7 +42,7 @@
 	<!-- Category Cloud -->
 	{#if categories.length > 0}
 		<div class="not-prose gap-2 mb-8 flex flex-wrap items-center">
-			{#each categories as [category, count]}
+			{#each categories as [category, count] (category)}
 				<a
 					href="?category={encodeURIComponent(category)}"
 					class="gap-1 border-border bg-accent px-3 py-1 text-sm text-accent-foreground inline-flex items-center rounded-full border no-underline"

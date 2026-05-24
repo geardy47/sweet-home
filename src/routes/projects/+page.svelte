@@ -4,25 +4,29 @@
 	const projects = [
 		{
 			name: 'Sweet Home',
-			description: 'Personal website and blog built with SvelteKit, featuring a Flexoki-inspired design system, dark mode, and markdown-powered content.',
+			description:
+				'Personal website and blog built with SvelteKit, featuring a Flexoki-inspired design system, dark mode, and markdown-powered content.',
 			tags: ['SvelteKit', 'Tailwind CSS', 'mdsvex', 'shadcn-svelte'],
 			url: 'https://github.com/geardy47/sweet-home'
 		},
 		{
 			name: 'Flutter Toolkit',
-			description: 'Collection of reusable Flutter widgets and utilities for accelerating mobile app development with clean architecture patterns.',
+			description:
+				'Collection of reusable Flutter widgets and utilities for accelerating mobile app development with clean architecture patterns.',
 			tags: ['Flutter', 'Dart', 'Firebase'],
 			url: 'https://github.com/geardy47'
 		},
 		{
 			name: 'CLI Scaffold',
-			description: 'Command-line productivity tool for scaffolding and automating common development workflows, written in Rust.',
+			description:
+				'Command-line productivity tool for scaffolding and automating common development workflows, written in Rust.',
 			tags: ['Rust', 'CLI'],
 			url: 'https://github.com/geardy47'
 		},
 		{
 			name: 'Motion Dashboard',
-			description: 'Real-time data visualization dashboard for monitoring application performance metrics and user analytics.',
+			description:
+				'Real-time data visualization dashboard for monitoring application performance metrics and user analytics.',
 			tags: ['Svelte', 'D3.js', 'WebSocket'],
 			url: 'https://github.com/geardy47'
 		}
@@ -37,8 +41,8 @@
 	<h1 class="text-fg">Projects</h1>
 
 	<div class="not-prose space-y-5">
-		{#each projects as project}
-			<article class="rounded-lg border border-border p-4 sm:p-5">
+		{#each projects as project (project.name)}
+			<article class="rounded-lg border-border p-4 sm:p-5 border">
 				<h3 class="text-base sm:text-lg font-semibold">
 					<a
 						href={project.url}
@@ -49,10 +53,15 @@
 						{project.name}
 					</a>
 				</h3>
-				<p class="text-muted mt-1 text-sm leading-relaxed">{project.description}</p>
-				<div class="mt-3 flex flex-wrap gap-2">
-					{#each project.tags as tag}
-						<span class="rounded-full border border-border bg-accent px-3 py-0.5 text-xs text-accent-foreground">{tag}</span>
+				<p class="text-muted mt-1 text-sm leading-relaxed">
+					{project.description}
+				</p>
+				<div class="mt-3 gap-2 flex flex-wrap">
+					{#each project.tags as tag (tag)}
+						<span
+							class="border-border bg-accent px-3 py-0.5 text-xs text-accent-foreground rounded-full border"
+							>{tag}</span
+						>
 					{/each}
 				</div>
 			</article>
