@@ -14,13 +14,6 @@
 
 <article>
 	<header class="mb-6 sm:mb-10">
-		<a
-			href="{base}/writings"
-			class="text-muted hover:text-primary mb-6 inline-flex items-center gap-1 text-sm no-underline transition-colors"
-		>
-			&larr; Back to writings
-		</a>
-
 		<hgroup>
 			<h1 class="text-3xl sm:text-4xl font-bold capitalize leading-tight text-fg">{data.meta.title}</h1>
 			<p class="mt-3 text-sm text-muted">
