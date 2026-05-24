@@ -4,22 +4,50 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import autolink from 'rehype-autolink-headings';
-import rehypeShiki from '@shikijs/rehype';
+import { createHighlighter } from 'shiki';
+
+const escape_svelty = (str) =>
+	str
+		.replace(/[{}`]/g, (c) => ({ '{': '&#123;', '}': '&#125;', '`': '&#96;' }[c]))
+		.replace(/\\([trn])/g, '&#92;$1');
+
+const highlighter = await createHighlighter({
+	themes: ['github-light-default', 'github-dark-default'],
+	langs: [
+		'javascript',
+		'typescript',
+		'svelte',
+		'css',
+		'html',
+		'bash',
+		'shell',
+		'json',
+		'markdown',
+		'yaml',
+		'tsx',
+		'jsx'
+	]
+});
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
+	highlight: {
+		highlighter: (code, lang) => {
+			const highlighted = escape_svelty(
+				highlighter.codeToHtml(code, {
+					lang: lang || 'text',
+					themes: {
+						light: 'github-light-default',
+						dark: 'github-dark-default'
+					},
+					defaultColor: false
+				})
+			);
+			return `{@html \`${highlighted}\`}`;
+		}
+	},
 	rehypePlugins: [
-		[
-			rehypeShiki,
-			{
-				themes: {
-					light: 'github-light-default',
-					dark: 'github-dark-default'
-				},
-				defaultColor: false
-			}
-		],
 		slug,
 		[
 			autolink,

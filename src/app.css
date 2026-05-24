@@ -93,7 +93,7 @@ h6:hover .heading-anchor {
 /* ---- Shiki syntax highlighting ---- */
 
 /* Light theme (default) */
-.shiki {
+pre.shiki {
 	color: var(--shiki-light);
 	background-color: var(--shiki-light-bg);
 	border: 1px solid var(--border);
@@ -104,19 +104,18 @@ h6:hover .heading-anchor {
 	line-height: 1.7;
 }
 
-.shiki code {
+pre.shiki code {
 	display: block;
 	min-width: max-content;
 }
 
-.shiki .line {
+pre.shiki .line {
 	display: inline-block;
 	min-height: 1.25em;
-	width: 100%;
 }
 
 /* Dark theme override */
-.dark .shiki {
+.dark pre.shiki {
 	color: var(--shiki-dark);
 	background-color: var(--shiki-dark-bg);
 }
