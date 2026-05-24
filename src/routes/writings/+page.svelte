@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
-	import { formatDate, parseDate } from '$lib/utils';
+	import { formatDate } from '$lib/utils';
 	import * as config from '$lib/config';
 
 	let { data } = $props();
@@ -14,9 +14,10 @@
 	});
 
 	let filteredPosts = $derived(
-		activeCategory !== null
-			? posts.filter((p) => p.categories.includes(activeCategory!))
+		(activeCategory
+			? posts.filter((p) => p.categories.includes(activeCategory))
 			: posts
+		).sort((a, b) => b.date.localeCompare(a.date))
 	);
 
 	let categories = $derived.by(() => {
@@ -27,16 +28,6 @@
 			}
 		}
 		return [...map.entries()].sort((a, b) => b[1] - a[1]);
-	});
-
-	let groupedByYear = $derived.by(() => {
-		const map = new Map<number, typeof filteredPosts>();
-		for (const post of filteredPosts) {
-			const year = parseDate(post.date).getFullYear();
-			if (!map.has(year)) map.set(year, []);
-			map.get(year)!.push(post);
-		}
-		return [...map.entries()].sort((a, b) => b[0] - a[0]);
 	});
 </script>
 
@@ -49,7 +40,7 @@
 
 	<!-- Category Cloud -->
 	{#if categories.length > 0}
-		<div class="not-prose gap-2 flex flex-wrap">
+		<div class="not-prose gap-2 mb-8 flex flex-wrap items-center">
 			{#each categories as [category, count]}
 				<a
 					href="?category={encodeURIComponent(category)}"
@@ -59,44 +50,39 @@
 					<span class="text-xs opacity-60">({count})</span>
 				</a>
 			{/each}
+			{#if activeCategory}
+				<a href="?" class="text-muted text-sm hover:text-fg no-underline">
+					&times; clear filter
+				</a>
+			{/if}
 		</div>
 	{/if}
 
 	<!-- Empty State -->
 	{#if posts.length === 0}
-		<p class="not-prose text-muted py-12 text-center">
+		<p class="not-prose text-muted py-8 sm:py-12 text-center">
 			Nothing written yet. Check back later.
 		</p>
 	{:else if filteredPosts.length === 0}
-		<p class="not-prose text-muted py-12 text-center">
+		<p class="not-prose text-muted py-8 sm:py-12 text-center">
 			No posts in &ldquo;{activeCategory}&rdquo; category.
 		</p>
 	{:else}
-		<!-- Posts grouped by year -->
-		{#each groupedByYear as [year, yearPosts]}
-			<div class="not-prose">
-				<h2 class="my-4 text-2xl font-bold">{year}</h2>
-				<ul class="space-y-6">
-					{#each yearPosts as post (post.title)}
-						<li class="space-y-1">
-							<div class="sm:flex-row sm:items-baseline gap-3 flex flex-col">
-								<span class="text-muted text-sm shrink-0 tabular-nums">
-									{formatDate(post.date)}
-								</span>
-								<a
-									href="{base}/{post.slug}"
-									class="text-fg hover:text-primary font-medium no-underline"
-								>
-									{post.title}
-								</a>
-							</div>
-							<p class="text-muted text-sm leading-relaxed">
-								{post.description}
-							</p>
-						</li>
-					{/each}
-				</ul>
-			</div>
-		{/each}
+		<!-- Posts: flat chronological list -->
+		<ul class="not-prose space-y-4">
+			{#each filteredPosts as post (post.title)}
+				<li class="sm:flex-row sm:items-baseline gap-4 flex flex-col">
+					<span class="text-muted text-sm w-28 shrink-0 tabular-nums">
+						{formatDate(post.date)}
+					</span>
+					<a
+						href="{base}/{post.slug}"
+						class="text-fg hover:text-primary font-medium no-underline hover:underline"
+					>
+						{post.title}
+					</a>
+				</li>
+			{/each}
+		</ul>
 	{/if}
 </section>
