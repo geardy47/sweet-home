@@ -49,11 +49,11 @@
 
 	<!-- Category Cloud -->
 	{#if categories.length > 0}
-		<div class="not-prose flex flex-wrap gap-2">
+		<div class="not-prose gap-2 flex flex-wrap">
 			{#each categories as [category, count]}
 				<a
 					href="?category={encodeURIComponent(category)}"
-					class="inline-flex items-center gap-1 rounded-full border border-border bg-accent px-3 py-1 text-sm text-accent-foreground no-underline"
+					class="gap-1 border-border bg-accent px-3 py-1 text-sm text-accent-foreground inline-flex items-center rounded-full border no-underline"
 				>
 					{category}
 					<span class="text-xs opacity-60">({count})</span>
@@ -75,12 +75,12 @@
 		<!-- Posts grouped by year -->
 		{#each groupedByYear as [year, yearPosts]}
 			<div class="not-prose">
-				<h2 class="mb-4 text-2xl font-bold">{year}</h2>
+				<h2 class="my-4 text-2xl font-bold">{year}</h2>
 				<ul class="space-y-6">
 					{#each yearPosts as post (post.title)}
 						<li class="space-y-1">
-							<div class="flex items-baseline gap-3">
-								<span class="text-muted shrink-0 text-sm tabular-nums">
+							<div class="sm:flex-row sm:items-baseline gap-3 flex flex-col">
+								<span class="text-muted text-sm shrink-0 tabular-nums">
 									{formatDate(post.date)}
 								</span>
 								<a
@@ -90,7 +90,9 @@
 									{post.title}
 								</a>
 							</div>
-							<p class="text-muted text-sm leading-relaxed">{post.description}</p>
+							<p class="text-muted text-sm leading-relaxed">
+								{post.description}
+							</p>
 						</li>
 					{/each}
 				</ul>

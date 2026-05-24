@@ -38,8 +38,8 @@
 
 	<div class="not-prose space-y-5">
 		{#each projects as project}
-			<article class="rounded-lg border border-border p-5">
-				<h3 class="text-lg font-semibold">
+			<article class="rounded-lg border border-border p-4 sm:p-5">
+				<h3 class="text-base sm:text-lg font-semibold">
 					<a
 						href={project.url}
 						class="text-fg hover:text-primary no-underline"

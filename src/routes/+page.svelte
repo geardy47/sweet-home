@@ -33,7 +33,7 @@
 	<!-- Interviews table -->
 	<h2>Interviews</h2>
 	<div class="not-prose overflow-x-auto">
-		<table class="w-full text-sm">
+		<table class="w-full text-xs sm:text-sm min-w-[480px]">
 			<thead>
 				<tr class="border-b border-border text-left">
 					<th class="pb-2 pr-4 font-medium">Publication</th>

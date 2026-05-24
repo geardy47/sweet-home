@@ -13,7 +13,7 @@
 </svelte:head>
 
 <article>
-	<header class="mb-10">
+	<header class="mb-6 sm:mb-10">
 		<a
 			href="{base}/writings"
 			class="text-muted hover:text-primary mb-6 inline-flex items-center gap-1 text-sm no-underline transition-colors"
@@ -22,7 +22,7 @@
 		</a>
 
 		<hgroup>
-			<h1 class="text-4xl font-bold capitalize leading-tight text-fg">{data.meta.title}</h1>
+			<h1 class="text-3xl sm:text-4xl font-bold capitalize leading-tight text-fg">{data.meta.title}</h1>
 			<p class="mt-3 text-sm text-muted">
 				Published on {formatDate(data.meta.date)}
 			</p>
@@ -35,7 +35,7 @@
 						href="{base}/writings?category={encodeURIComponent(category)}"
 						class="rounded-full border border-border bg-accent px-3 py-1 text-sm text-accent-foreground no-underline transition-colors hover:opacity-80"
 					>
-						&num;{category}
+						#{category}
 					</a>
 				{/each}
 			</div>
@@ -46,7 +46,7 @@
 		<data.content />
 	</div>
 
-	<nav class="not-prose mt-16 border-t border-border pt-8">
+	<nav class="not-prose mt-10 sm:mt-16 border-t border-border pt-6 sm:pt-8">
 		<a
 			href="{base}/writings"
 			class="text-muted hover:text-primary inline-flex items-center gap-1 text-sm no-underline transition-colors"
