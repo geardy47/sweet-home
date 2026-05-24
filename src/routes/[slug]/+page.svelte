@@ -46,12 +46,12 @@
 		<data.content />
 	</div>
 
-	<footer class="not-prose mt-16 border-t border-border pt-8">
+	<nav class="not-prose mt-16 border-t border-border pt-8">
 		<a
 			href="{base}/writings"
 			class="text-muted hover:text-primary inline-flex items-center gap-1 text-sm no-underline transition-colors"
 		>
 			&larr; Back to writings
 		</a>
-	</footer>
+	</nav>
 </article>

@@ -1,5 +1,11 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/typography';
+/*
+ * Prose theme mapped to Flexoki variables.
+ * All 18 --tw-prose-* tokens reference var(--fg), var(--muted), etc.
+ * These CSS variables change under .dark (defined in app.css), so dark
+ * mode inherits correct colors automatically. Only --tw-prose-pre-bg
+ * needs an explicit .dark override to use --accent instead of --bg.
+ * No dark:prose-invert or --tw-prose-invert-* tokens needed.
+ */
 
 .prose {
 	--tw-prose-body: var(--fg);

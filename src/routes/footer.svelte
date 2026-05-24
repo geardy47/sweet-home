@@ -7,7 +7,7 @@
 	import Rss from '@lucide/svelte/icons/rss';
 </script>
 
-<footer class="mt-16 flex items-center justify-between border-t border-border pt-7 pb-4">
+<footer class="flex items-center justify-between border-t border-border pt-7 pb-4">
 	<p class="text-muted text-sm">{config.title} &copy; {new Date().getFullYear()}</p>
 	<div class="flex items-center gap-4">
 		<a href={base + "/feed.xml"} class="text-muted hover:text-fg transition-colors" aria-label="RSS feed">
