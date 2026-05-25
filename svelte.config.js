@@ -5,6 +5,8 @@ import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import autolink from 'rehype-autolink-headings';
 import { createHighlighter } from 'shiki';
+import flexokiLight from './src/lib/themes/flexoki-light.json' with { type: 'json' };
+import flexokiDark from './src/lib/themes/flexoki-dark.json' with { type: 'json' };
 
 const escape_svelty = (str) =>
 	str
@@ -12,7 +14,7 @@ const escape_svelty = (str) =>
 		.replace(/\\([trn])/g, '&#92;$1');
 
 const highlighter = await createHighlighter({
-	themes: ['github-light-default', 'github-dark-default'],
+	themes: [flexokiLight, flexokiDark],
 	langs: [
 		'javascript',
 		'typescript',
@@ -38,8 +40,8 @@ const mdsvexOptions = {
 				highlighter.codeToHtml(code, {
 					lang: lang || 'text',
 					themes: {
-						light: 'github-light-default',
-						dark: 'github-dark-default'
+						light: 'flexoki-light',
+						dark: 'flexoki-dark'
 					},
 					defaultColor: false
 				})

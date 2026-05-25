@@ -1,0 +1,280 @@
+{
+  "name": "flexoki-dark",
+  "type": "dark",
+  "colors": {
+    "editor.foreground": "#CECDC3",
+    "editor.background": "#100F0F",
+    "editor.lineHighlightBackground": "#1C1B1A",
+    "editor.selectionBackground": "#282726",
+    "editor.inactiveSelectionBackground": "#1C1B1A",
+    "editorCursor.foreground": "#CECDC3",
+    "editorLineNumber.foreground": "#575653",
+    "editorLineNumber.activeForeground": "#878580"
+  },
+  "tokenColors": [
+    {
+      "name": "Comments",
+      "scope": ["comment", "punctuation.definition.comment", "string.comment"],
+      "settings": {
+        "foreground": "#575653",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Punctuation and Operators",
+      "scope": [
+        "punctuation",
+        "keyword.operator",
+        "storage.modifier",
+        "punctuation.definition.tag",
+        "punctuation.separator",
+        "punctuation.terminator",
+        "punctuation.accessor"
+      ],
+      "settings": {
+        "foreground": "#878580"
+      }
+    },
+    {
+      "name": "Keywords",
+      "scope": [
+        "keyword - keyword.operator - keyword.control.import - keyword.control.export",
+        "storage.type",
+        "storage"
+      ],
+      "settings": {
+        "foreground": "#879A39"
+      }
+    },
+    {
+      "name": "Imports and Exports",
+      "scope": [
+        "keyword.control.import",
+        "keyword.control.export",
+        "keyword.control.from",
+        "keyword.control.as"
+      ],
+      "settings": {
+        "foreground": "#D14D41"
+      }
+    },
+    {
+      "name": "Functions",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call",
+        "meta.function"
+      ],
+      "settings": {
+        "foreground": "#DA702C"
+      }
+    },
+    {
+      "name": "Strings",
+      "scope": [
+        "string",
+        "string punctuation.definition.string.begin",
+        "string punctuation.definition.string.end",
+        "markup.quote"
+      ],
+      "settings": {
+        "foreground": "#3AA99F"
+      }
+    },
+    {
+      "name": "Template expressions",
+      "scope": [
+        "string.template expression"
+      ],
+      "settings": {
+        "foreground": "#D14D41"
+      }
+    },
+    {
+      "name": "Constants",
+      "scope": [
+        "constant",
+        "support.constant",
+        "entity.name.constant",
+        "variable.other.constant"
+      ],
+      "settings": {
+        "foreground": "#D0A215"
+      }
+    },
+    {
+      "name": "Numbers",
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#8B7EC8"
+      }
+    },
+    {
+      "name": "Language constants (boolean, null, etc.)",
+      "scope": ["constant.language"],
+      "settings": {
+        "foreground": "#8B7EC8"
+      }
+    },
+    {
+      "name": "Types and Classes",
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "entity.name.module",
+        "support.type",
+        "support.class",
+        "entity.other.inherited-class"
+      ],
+      "settings": {
+        "foreground": "#CE5D97"
+      }
+    },
+    {
+      "name": "Variables and Attributes",
+      "scope": [
+        "variable",
+        "entity.name.variable",
+        "support.variable",
+        "entity.other.attribute-name",
+        "meta.object-literal.key",
+        "meta.object.member"
+      ],
+      "settings": {
+        "foreground": "#4385BE"
+      }
+    },
+    {
+      "name": "Parameters",
+      "scope": [
+        "variable.parameter",
+        "variable.parameter.function",
+        "meta.parameter"
+      ],
+      "settings": {
+        "foreground": "#CECDC3"
+      }
+    },
+    {
+      "name": "Tags",
+      "scope": [
+        "entity.name.tag",
+        "meta.tag.sgml",
+        "meta.tag",
+        "punctuation.definition.tag.begin",
+        "punctuation.definition.tag.end"
+      ],
+      "settings": {
+        "foreground": "#4385BE"
+      }
+    },
+    {
+      "name": "Tag attributes (HTML/Svelte/JSX)",
+      "scope": ["entity.other.attribute-name"],
+      "settings": {
+        "foreground": "#DA702C"
+      }
+    },
+    {
+      "name": "CSS property names",
+      "scope": ["support.type.property-name"],
+      "settings": {
+        "foreground": "#4385BE"
+      }
+    },
+    {
+      "name": "CSS property values",
+      "scope": ["support.constant.property-value"],
+      "settings": {
+        "foreground": "#D0A215"
+      }
+    },
+    {
+      "name": "CSS selectors",
+      "scope": ["entity.other.attribute-name.class", "entity.other.attribute-name.id"],
+      "settings": {
+        "foreground": "#CE5D97"
+      }
+    },
+    {
+      "name": "Regex",
+      "scope": ["string.regexp"],
+      "settings": {
+        "foreground": "#3AA99F"
+      }
+    },
+    {
+      "name": "Escape sequences",
+      "scope": ["constant.character.escape"],
+      "settings": {
+        "foreground": "#D0A215"
+      }
+    },
+    {
+      "name": "Markup headings",
+      "scope": ["markup.heading", "markup.heading punctuation.definition.heading"],
+      "settings": {
+        "foreground": "#4385BE",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup bold",
+      "scope": ["markup.bold"],
+      "settings": {
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markup italic",
+      "scope": ["markup.italic"],
+      "settings": {
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markup links",
+      "scope": ["markup.underline.link", "string.other.link"],
+      "settings": {
+        "foreground": "#3AA99F",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Markup lists",
+      "scope": ["markup.list"],
+      "settings": {
+        "foreground": "#D14D41"
+      }
+    },
+    {
+      "name": "Diff inserted",
+      "scope": ["markup.inserted"],
+      "settings": {
+        "foreground": "#879A39"
+      }
+    },
+    {
+      "name": "Diff deleted",
+      "scope": ["markup.deleted"],
+      "settings": {
+        "foreground": "#D14D41"
+      }
+    },
+    {
+      "name": "Diff changed",
+      "scope": ["markup.changed"],
+      "settings": {
+        "foreground": "#D0A215"
+      }
+    },
+    {
+      "name": "Embedded / source",
+      "scope": ["text.source", "meta.embedded"],
+      "settings": {
+        "foreground": "#CECDC3"
+      }
+    }
+  ]
+}
