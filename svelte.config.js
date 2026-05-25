@@ -11,7 +11,7 @@ import flexokiDark from './src/lib/themes/flexoki-dark.json' with { type: 'json'
 const escape_svelty = (str) =>
 	str
 		.replace(/[{}`]/g, (c) => ({ '{': '&#123;', '}': '&#125;', '`': '&#96;' }[c]))
-		.replace(/\\([trn])/g, '&#92;$1');
+		.replace(/\\/g, '&#92;');
 
 const highlighter = await createHighlighter({
 	themes: [flexokiLight, flexokiDark],

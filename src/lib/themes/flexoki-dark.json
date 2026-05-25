@@ -85,7 +85,7 @@
     {
       "name": "Template expressions",
       "scope": [
-        "string.template expression"
+        "punctuation.definition.template-expression"
       ],
       "settings": {
         "foreground": "#D14D41"
@@ -137,7 +137,6 @@
         "variable",
         "entity.name.variable",
         "support.variable",
-        "entity.other.attribute-name",
         "meta.object-literal.key",
         "meta.object.member"
       ],

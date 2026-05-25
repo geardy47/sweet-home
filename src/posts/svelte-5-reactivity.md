@@ -19,16 +19,16 @@ rune-based code in the same app.
 
 ```svelte
 <script>
-	let count = $state(0);
-	let doubled = $derived(count * 2);
+ let count = $state(0);
+ let doubled = $derived(count * 2);
 
-	$effect(() => {
-		console.log(`Count changed to ${count}`);
-	});
+ $effect(() => {
+  console.log(`Count changed to ${count}`);
+ });
 </script>
 
 <button onclick={() => count++}>
-	Count: {count} (doubled: {doubled})
+ Count: {count} (doubled: {doubled})
 </button>
 ```
 
@@ -37,25 +37,29 @@ rune-based code in the same app.
 ```ts
 // reactivity.ts — runes work outside .svelte files
 function createTimer() {
-	let elapsed = $state(0);
-	let running = $state(false);
-	let interval: ReturnType<typeof setInterval>;
+ let elapsed = $state(0);
+ let running = $state(false);
+ let interval: ReturnType<typeof setInterval>;
 
-	function start() {
-		running = true;
-		interval = setInterval(() => elapsed++, 1000);
-	}
+ function start() {
+  running = true;
+  interval = setInterval(() => elapsed++, 1000);
+ }
 
-	function stop() {
-		running = false;
-		clearInterval(interval);
-	}
+ function stop() {
+  running = false;
+  clearInterval(interval);
+ }
 
-	return {
-		get elapsed() { return elapsed; },
-		get running() { return running; },
-		start,
-		stop
-	};
+ return {
+  get elapsed() {
+   return elapsed;
+  },
+  get running() {
+   return running;
+  },
+  start,
+  stop
+ };
 }
 ```

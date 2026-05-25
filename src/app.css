@@ -50,7 +50,7 @@
 	--destructive: #d14d41;
 	--destructive-foreground: #100f0f;
 	--background: #100f0f;
-	--accent: #2e2e2e;
+	--accent: #343331;
 	--accent-foreground: #fffcf0;
 	--input: #2e2e2e;
 	--ring: #6fade8;
@@ -104,10 +104,11 @@ pre.shiki {
 
 pre.shiki,
 pre.shiki span {
-	color: var(--shiki-light);
-	font-style: var(--shiki-light-font-style);
-	font-weight: var(--shiki-light-font-weight);
-	text-decoration: var(--shiki-light-text-decoration);
+	color: var(--shiki-light) !important;
+	background-color: var(--shiki-light-bg) !important;
+	font-style: var(--shiki-light-font-style) !important;
+	font-weight: var(--shiki-light-font-weight) !important;
+	text-decoration: var(--shiki-light-text-decoration) !important;
 }
 
 .dark pre.shiki,
