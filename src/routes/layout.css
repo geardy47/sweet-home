@@ -1,5 +1,5 @@
 /*
- * Prose theme mapped to Flexoki variables.
+ * Prose theme mapped to Catppuccin CSS variables.
  * All 18 --tw-prose-* tokens reference var(--fg), var(--muted), etc.
  * These CSS variables change under .dark (defined in app.css), so dark
  * mode inherits correct colors automatically. Only --tw-prose-pre-bg
@@ -28,6 +28,4 @@
 	--tw-prose-td-borders: var(--border);
 }
 
-.dark .prose {
-	--tw-prose-pre-bg: var(--accent);
-}
+

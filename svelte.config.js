@@ -5,8 +5,7 @@ import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 import autolink from 'rehype-autolink-headings';
 import { createHighlighter } from 'shiki';
-import flexokiLight from './src/lib/themes/flexoki-light.json' with { type: 'json' };
-import flexokiDark from './src/lib/themes/flexoki-dark.json' with { type: 'json' };
+
 
 const escape_svelty = (str) =>
 	str
@@ -14,7 +13,7 @@ const escape_svelty = (str) =>
 		.replace(/\\/g, '&#92;');
 
 const highlighter = await createHighlighter({
-	themes: [flexokiLight, flexokiDark],
+	themes: ['catppuccin-latte', 'catppuccin-mocha'],
 	langs: [
 		'javascript',
 		'typescript',
@@ -40,8 +39,8 @@ const mdsvexOptions = {
 				highlighter.codeToHtml(code, {
 					lang: lang || 'text',
 					themes: {
-						light: 'flexoki-light',
-						dark: 'flexoki-dark'
+						light: 'catppuccin-latte',
+						dark: 'catppuccin-mocha'
 					},
 					defaultColor: false
 				})
