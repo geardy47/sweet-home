@@ -77,6 +77,6 @@
 		<a href="https://www.shadcn-svelte.com/">shadcn-svelte</a> for UI
 		components, and is hosted on
 		<a href="https://pages.github.com/">GitHub Pages</a>. The design uses the
-		Flexoki color palette.
+		Catppuccin color palette.
 	</p>
 </article>

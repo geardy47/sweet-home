@@ -25,7 +25,7 @@
 :root {
 	--bg: #eff1f5;
 	--fg: #4c4f69;
-	--muted: #9ca0b0;
+	--muted: #6c6f85;
 	--border: #dce0e8;
 	--primary: #1e66f5;
 	--primary-foreground: #eff1f5;
@@ -50,11 +50,11 @@
 	--destructive: #f38ba8;
 	--destructive-foreground: #1e1e2e;
 	--background: #1e1e2e;
-	--accent: #313244;
+	--accent: #45475a;
 	--accent-foreground: #cdd6f4;
 	--input: #313244;
 	--ring: #89b4fa;
-	--secondary: #313244;
+	--secondary: #45475a;
 	--secondary-foreground: #cdd6f4;
 }
 

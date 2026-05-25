@@ -5,7 +5,7 @@
 		{
 			name: 'Sweet Home',
 			description:
-				'Personal website and blog built with SvelteKit, featuring a Flexoki-inspired design system, dark mode, and markdown-powered content.',
+				'Personal website and blog built with SvelteKit, featuring a Catppuccin-inspired design system, dark mode, and markdown-powered content.',
 			tags: ['SvelteKit', 'Tailwind CSS', 'mdsvex', 'shadcn-svelte'],
 			url: 'https://github.com/geardy47/sweet-home'
 		},
