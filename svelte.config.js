@@ -13,7 +13,7 @@ const escape_svelty = (str) =>
 		.replace(/\\/g, '&#92;');
 
 const highlighter = await createHighlighter({
-	themes: ['catppuccin-latte', 'catppuccin-mocha'],
+	themes: ['github-light', 'github-dark'],
 	langs: [
 		'javascript',
 		'typescript',
@@ -39,8 +39,8 @@ const mdsvexOptions = {
 				highlighter.codeToHtml(code, {
 					lang: lang || 'text',
 					themes: {
-						light: 'catppuccin-latte',
-						dark: 'catppuccin-mocha'
+						light: 'github-light',
+						dark: 'github-dark'
 					},
 					defaultColor: false
 				})

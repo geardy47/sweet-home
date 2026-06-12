@@ -77,6 +77,6 @@
 		<a href="https://www.shadcn-svelte.com/">shadcn-svelte</a> for UI
 		components, and is hosted on
 		<a href="https://pages.github.com/">GitHub Pages</a>. The design uses the
-		Catppuccin color palette.
+		GitHub color palette.
 	</p>
 </article>

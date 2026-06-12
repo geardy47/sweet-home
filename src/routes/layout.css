@@ -1,5 +1,5 @@
 /*
- * Prose theme mapped to Catppuccin CSS variables.
+ * Prose theme mapped to CSS variables.
  * All 18 --tw-prose-* tokens reference var(--fg), var(--muted), etc.
  * These CSS variables change under .dark (defined in app.css), so dark
  * mode inherits correct colors automatically.
