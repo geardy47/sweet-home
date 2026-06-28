@@ -5,9 +5,6 @@ date: "2026-04-20"
 categories:
   - flutter
   - dart
-tags:
-  - flutter
-  - dart
   - build-runner
   - code-generation
 published: true

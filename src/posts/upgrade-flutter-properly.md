@@ -4,8 +4,6 @@ description: "Steps to properly upgrade Flutter and update dependencies."
 date: "2026-06-28"
 categories:
   - flutter
-tags:
-  - flutter
   - upgrade
   - dependency-management
 published: true

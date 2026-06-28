@@ -6,8 +6,6 @@ description:
 date: '2026-05-12'
 categories:
   - flutter
-tags:
-  - flutter
   - dart
   - dio
   - error-handling
