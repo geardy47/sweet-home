@@ -7,7 +7,7 @@ date: '2025-08-16'
 categories:
   - flutter
 published: true
-readingTime: '4 min'
+readingTime: '3 min'
 ---
 
 A core feature of the [Stacked](https://stacked.filledstacks.com/) architecture

@@ -5,7 +5,7 @@ date: "2026-04-20"
 categories:
   - flutter
 published: true
-readingTime: '2 min'
+readingTime: '1 min'
 ---
 
 Each build config will treated as a separate build script entirely. So, when
