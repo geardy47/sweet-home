@@ -26,7 +26,9 @@ const highlighter = await createHighlighter({
 		'markdown',
 		'yaml',
 		'tsx',
-		'jsx'
+		'jsx',
+		'dart',
+		'ini'
 	]
 });
 
