@@ -4,6 +4,7 @@ description: "Understanding how Flutter build runner behaves with different buil
 date: "2026-04-20"
 categories:
   - flutter
+  - dart
 published: true
 readingTime: '1 min'
 ---

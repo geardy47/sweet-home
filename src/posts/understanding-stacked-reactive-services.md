@@ -6,6 +6,7 @@ description:
 date: '2025-08-16'
 categories:
   - flutter
+  - architecture
 published: true
 readingTime: '3 min'
 ---

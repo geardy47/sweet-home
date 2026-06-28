@@ -3,7 +3,7 @@ title: "How I Squash Commit"
 description: "Three ways to squash Git commits: interactive rebase, git reset, and merge squash."
 date: "2025-01-14"
 categories:
-  - general
+  - git
 published: true
 readingTime: '3 min'
 ---

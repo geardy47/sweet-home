@@ -4,7 +4,8 @@ description:
   'Step-by-step guide to create a foldable Android emulator using avdmanager.'
 date: '2025-01-06'
 categories:
-  - general
+  - android
+  - flutter
 published: true
 readingTime: '1 min'
 ---
