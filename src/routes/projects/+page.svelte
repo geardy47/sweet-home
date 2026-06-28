@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import * as config from '$lib/config';
 
 	const projects = [
@@ -9,6 +10,7 @@
 			timeline: 'May 2025 — Present',
 			url: 'https://github.com/geardy47/sweet-home',
 			demo: 'https://gentashandi.com',
+			image: `${base}/images/projects/sweet-home-home.png`,
 			description:
 				'Personal website and blog built with SvelteKit. Features a GitHub-inspired design system, dark mode, and markdown-powered content with Shiki syntax highlighting.',
 			highlights: [
@@ -26,6 +28,7 @@
 			timeline: 'Jan 2019 — Apr 2019',
 			url: 'https://github.com/geardy47/Manatek',
 			demo: null,
+			image: `${base}/images/projects/manatek-placeholder.svg`,
 			description:
 				'Pharmacy management application (Manajemen Apotek) built as a university project. Handles inventory tracking, drug stock management, and prescription records.',
 			highlights: [
@@ -48,6 +51,22 @@
 	<div class="not-prose space-y-6">
 		{#each projects as project (project.name)}
 			<article class="rounded-lg border-border p-5 sm:p-6 border">
+				<!-- Image -->
+				{#if project.image}
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="block -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden rounded-t-lg"
+					>
+						<img
+							src={project.image}
+							alt="{project.name} screenshot"
+							class="w-full aspect-video object-cover border-border border-b"
+						/>
+					</a>
+				{/if}
+
 				<!-- Header: name + badges -->
 				<div class="flex flex-wrap items-start justify-between gap-2">
 					<div>
