@@ -22,6 +22,24 @@
 			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'mdsvex', 'Shiki', 'GitHub Pages']
 		},
 		{
+			name: 'stitch-and-fit',
+			role: 'Solo',
+			status: 'Active',
+			timeline: '2025 — Present',
+			url: 'https://github.com/geardy47/stitch-and-fit',
+			demo: 'https://stitch-and-fit.vercel.app',
+			image: null,
+			description:
+				'Clothing E-Commerce MVP with a customer-facing storefront and a separate admin panel for managing products, orders, and inventory.',
+			highlights: [
+				'Customer storefront with product catalog and checkout',
+				'Separate admin panel for product, order, and inventory management',
+				'Role-based access: customer vs admin views',
+				'Deployed on Vercel with CI/CD'
+			],
+			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Vercel', 'PostgreSQL']
+		},
+		{
 			name: 'Manatek',
 			role: 'Solo',
 			status: 'Archived',
@@ -51,44 +69,46 @@
 	<div class="not-prose space-y-6">
 		{#each projects as project (project.name)}
 			<article class="rounded-lg border-border p-5 sm:p-6 border">
-				<!-- Image: browser frame for web projects, raw for others -->
+				<!-- Image: centered padded showcase -->
 				{#if project.image}
-					{#if project.name === 'sweet-home'}
-						<a
-							href={project.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="block -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden rounded-t-lg"
-						>
-							<div class="bg-muted/40">
-								<!-- Browser chrome -->
-								<div class="flex items-center gap-1.5 border-border border-b px-4 py-2.5">
-									<span class="inline-block size-2.5 rounded-full bg-red-500"></span>
-									<span class="inline-block size-2.5 rounded-full bg-yellow-500"></span>
-									<span class="inline-block size-2.5 rounded-full bg-green-500"></span>
-									<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">gentashandi.com</span>
+					<div class="flex items-center justify-center rounded-lg bg-muted/30 p-4 sm:p-6 mb-5 sm:mb-6">
+						{#if project.name === 'sweet-home'}
+							<a
+								href={project.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="block w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm"
+							>
+								<div class="bg-muted/40">
+									<!-- Browser chrome -->
+									<div class="flex items-center gap-1.5 border-border border-b px-4 py-2">
+										<span class="inline-block size-2.5 rounded-full bg-red-500"></span>
+										<span class="inline-block size-2.5 rounded-full bg-yellow-500"></span>
+										<span class="inline-block size-2.5 rounded-full bg-green-500"></span>
+										<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">gentashandi.com</span>
+									</div>
+									<img
+										src={project.image}
+										alt="{project.name} screenshot"
+										class="w-full"
+									/>
 								</div>
+							</a>
+						{:else}
+							<a
+								href={project.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="block w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm"
+							>
 								<img
 									src={project.image}
 									alt="{project.name} screenshot"
-									class="w-full aspect-[16/10] object-contain"
+									class="w-full"
 								/>
-							</div>
-						</a>
-					{:else}
-						<a
-							href={project.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="block -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden rounded-t-lg bg-muted/30"
-						>
-							<img
-								src={project.image}
-								alt="{project.name} screenshot"
-								class="w-full aspect-[16/10] object-contain"
-							/>
-						</a>
-					{/if}
+							</a>
+						{/if}
+					</div>
 				{/if}
 
 				<!-- Header: name + badges -->
