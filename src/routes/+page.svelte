@@ -1,23 +1,10 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import * as config from '$lib/config';
 
-	const interviews = [
-		{
-			publication: 'Flutter Dev Weekly',
-			title: 'Building Cross-Platform Apps at Scale',
-			date: '2024-08-15'
-		},
-		{
-			publication: 'Mobile Masters Podcast',
-			title: 'From Flutter to Native: The Full Spectrum',
-			date: '2024-03-22'
-		},
-		{
-			publication: 'TechTalks Magazine',
-			title: 'The Future of Mobile Development',
-			date: '2023-11-10'
-		}
-	];
+	let { data } = $props();
+
+	let posts = $derived(data.posts);
 </script>
 
 <svelte:head>
@@ -27,45 +14,40 @@
 <article class="prose max-w-none">
 	<!-- Bio -->
 	<p>
-		I'm a mobile developer passionate about crafting intuitive, performant
-		applications that people love to use. With deep experience across Flutter,
-		Swift, and Kotlin, I bridge the gap between design and engineering to
-		deliver polished experiences on every platform.
+		I'm a Technical Lead and Mobile Developer at <a href="https://www.linkedin.com/company/pt-bank-raya-indonesia-tbk">Bank Raya</a>, where I build and maintain digital banking applications used by millions. My work spans Flutter, Kotlin, and Swift — with a focus on clean architecture, test-driven development, and smooth App Store &amp; Play Store releases.
 	</p>
 	<p>
-		My journey started tinkering with Android apps, evolved through building
-		cross-platform frameworks, and now spans full-stack mobile development. I
-		believe great software comes from understanding both the technology and the
-		people who use it.
+		My journey started tinkering with Android apps, evolved through frontend development with React and AngularJS, and now leads engineering teams delivering cross-platform mobile experiences. I believe great software comes from understanding both the technology and the people who use it.
 	</p>
 	<p>
-		Beyond coding, I enjoy contributing to open-source, writing about mobile
-		architecture, and exploring new tools that push the boundaries of what we
-		can build on devices in our pockets.
+		Beyond work, I write about mobile architecture, explore Linux and macOS, and build fullstack apps using SvelteKit and Supabase. I'm always looking for tools and patterns that push mobile development forward.
 	</p>
 
-	<!-- Interviews table -->
-	<h2>Interviews</h2>
-	<div class="not-prose overflow-x-auto">
-		<table class="text-xs sm:text-sm w-full min-w-[480px]">
-			<thead>
-				<tr class="border-border border-b text-left">
-					<th class="pb-2 pr-4 font-medium">Publication</th>
-					<th class="pb-2 pr-4 font-medium">Title</th>
-					<th class="pb-2 font-medium">Date</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each interviews as interview (interview.publication)}
-					<tr class="border-border border-b">
-						<td class="py-2 pr-4">{interview.publication}</td>
-						<td class="py-2 pr-4">{interview.title}</td>
-						<td class="py-2 text-muted">{interview.date}</td>
-					</tr>
-				{/each}
-			</tbody>
-		</table>
-	</div>
+	<!-- Latest writings -->
+	{#if posts.length > 0}
+		{@const post = posts[0]}
+		<h2>Latest</h2>
+		<div class="not-prose">
+			<a
+				href="{base}/{post.slug}"
+				class="text-fg hover:text-primary text-lg font-medium no-underline hover:underline"
+			>
+				{post.title}
+			</a>
+			<p class="text-muted mt-1 text-sm">
+				{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })} · {post.readingTime} read
+			</p>
+			<p class="text-muted mt-1">
+				{post.description}
+			</p>
+			<a
+				href="{base}/{post.slug}"
+				class="text-muted hover:text-fg mt-1 inline-block text-sm no-underline hover:underline"
+			>
+				Keep reading &rarr;
+			</a>
+		</div>
+	{/if}
 
 	<!-- Colophon -->
 	<h2>Colophon</h2>

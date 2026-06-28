@@ -6,6 +6,7 @@ date: '2025-01-06'
 categories:
   - general
 published: true
+readingTime: '1 min'
 ---
 
 ## 1. Run this command to create foldable emulator using `avdmanager`

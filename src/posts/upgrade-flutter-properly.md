@@ -5,6 +5,7 @@ date: "2026-06-28"
 categories:
   - flutter
 published: true
+readingTime: '2 min'
 ---
 
 In order to stay up to date to flutter version, run this syntax.

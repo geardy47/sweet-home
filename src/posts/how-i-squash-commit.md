@@ -5,6 +5,7 @@ date: "2025-01-14"
 categories:
   - general
 published: true
+readingTime: '3 min'
 ---
 
 ## Original

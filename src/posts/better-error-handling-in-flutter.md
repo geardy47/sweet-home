@@ -7,6 +7,7 @@ date: '2026-05-12'
 categories:
   - flutter
 published: true
+readingTime: '1 min'
 ---
 
 ```bash

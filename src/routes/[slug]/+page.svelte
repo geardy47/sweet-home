@@ -21,7 +21,7 @@
 				{data.meta.title}
 			</h1>
 			<p class="mt-3 text-sm text-muted">
-				Published on {formatDate(data.meta.date)}
+				Published on {formatDate(data.meta.date)} · {data.meta.readingTime} read
 			</p>
 		</hgroup>
 
