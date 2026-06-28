@@ -4,6 +4,12 @@ description: 'How to generate public certificates for Android and iOS in Flutter
 date: '2023-08-08'
 categories:
   - flutter
+tags:
+  - flutter
+  - android
+  - ios
+  - code-signing
+  - certificates
 published: true
 readingTime: '1 min'
 ---

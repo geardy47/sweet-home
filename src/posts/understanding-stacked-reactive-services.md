@@ -7,6 +7,12 @@ date: '2025-08-16'
 categories:
   - flutter
   - architecture
+tags:
+  - flutter
+  - stacked
+  - reactive
+  - services
+  - architecture
 published: true
 readingTime: '3 min'
 ---

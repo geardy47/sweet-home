@@ -6,6 +6,11 @@ date: '2025-01-06'
 categories:
   - android
   - flutter
+tags:
+  - android
+  - emulator
+  - avd
+  - foldable
 published: true
 readingTime: '1 min'
 ---

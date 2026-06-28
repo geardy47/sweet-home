@@ -6,6 +6,7 @@ export type Post = {
 	description: string;
 	date: string;
 	categories: Categories[];
+	tags?: string[];
 	published: boolean;
 	readingTime?: string;
 };

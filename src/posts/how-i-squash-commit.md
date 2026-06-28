@@ -4,6 +4,11 @@ description: "Three ways to squash Git commits: interactive rebase, git reset, a
 date: "2025-01-14"
 categories:
   - git
+tags:
+  - git
+  - squash
+  - rebase
+  - version-control
 published: true
 readingTime: '3 min'
 ---

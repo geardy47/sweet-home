@@ -4,6 +4,11 @@ description: 'How to properly ignore and untrack generated files in Flutter proj
 date: '2023-09-06'
 categories:
   - flutter
+tags:
+  - flutter
+  - dart
+  - gitignore
+  - generated-files
 published: true
 readingTime: '1 min'
 ---
