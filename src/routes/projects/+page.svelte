@@ -57,12 +57,12 @@
 						href={project.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden rounded-t-lg"
+						class="block -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 overflow-hidden rounded-t-lg bg-muted/30"
 					>
 						<img
 							src={project.image}
 							alt="{project.name} screenshot"
-							class="w-full aspect-video object-cover border-border border-b"
+							class="w-full aspect-[16/10] object-contain"
 						/>
 					</a>
 				{/if}
