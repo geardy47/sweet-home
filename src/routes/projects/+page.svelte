@@ -28,7 +28,7 @@
 			timeline: '2025 — Present',
 			url: 'https://github.com/geardy47/stitch-and-fit',
 			demo: 'https://stitch-and-fit.vercel.app',
-			image: null,
+			image: `${base}/images/projects/stitch-and-fit.png`,
 			description:
 				'Clothing E-Commerce MVP with a customer-facing storefront and a separate admin panel for managing products, orders, and inventory.',
 			highlights: [
@@ -36,6 +36,24 @@
 				'Separate admin panel for product, order, and inventory management',
 				'Role-based access: customer vs admin views',
 				'Deployed on Vercel with CI/CD'
+			],
+			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Vercel', 'PostgreSQL']
+		},
+		{
+			name: 'stitch-and-fit Admin',
+			role: 'Solo',
+			status: 'Active',
+			timeline: '2025 — Present',
+			url: 'https://github.com/geardy47/stitch-and-fit',
+			demo: 'https://stitch-and-fit.vercel.app/admin',
+			image: `${base}/images/projects/stitch-and-fit-admin.png`,
+			description:
+				'Admin dashboard for the Stitch & Fit e-commerce platform. Manages products, orders, inventory, and user roles with a dedicated admin interface.',
+			highlights: [
+				'Product CRUD management with image uploads',
+				'Order tracking and status updates',
+				'Inventory stock monitoring',
+				'Role-based authentication for admin access'
 			],
 			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Vercel', 'PostgreSQL']
 		},
@@ -72,7 +90,7 @@
 				<!-- Image: centered padded showcase -->
 				{#if project.image}
 					<div class="flex items-center justify-center rounded-lg bg-muted/30 p-4 sm:p-6 mb-5 sm:mb-6">
-						{#if project.name === 'sweet-home'}
+						{#if project.name === 'sweet-home' || project.name === 'stitch-and-fit' || project.name === 'stitch-and-fit Admin'}
 							<a
 								href={project.url}
 								target="_blank"
@@ -85,7 +103,9 @@
 										<span class="inline-block size-2.5 rounded-full bg-red-500"></span>
 										<span class="inline-block size-2.5 rounded-full bg-yellow-500"></span>
 										<span class="inline-block size-2.5 rounded-full bg-green-500"></span>
-										<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">gentashandi.com</span>
+										<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">
+											{project.name === 'sweet-home' ? 'gentashandi.com' : project.name === 'stitch-and-fit Admin' ? 'stitch-and-fit.vercel.app/admin' : 'stitch-and-fit.vercel.app'}
+										</span>
 									</div>
 									<img
 										src={project.image}
