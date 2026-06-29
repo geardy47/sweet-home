@@ -23,6 +23,15 @@
 		Beyond work, I write about mobile architecture, explore Linux and macOS, and build fullstack apps using SvelteKit and Supabase. I'm always looking for tools and patterns that push mobile development forward.
 	</p>
 
+	<a
+		href="https://drive.google.com/file/d/1p-vxeTdHw_dLfsqObiIYp-OUzHK0A-5E/view"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="not-prose text-muted hover:text-fg mb-6 inline-flex items-center gap-1.5 text-sm no-underline hover:underline"
+	>
+		Download CV &rarr;
+	</a>
+
 	<!-- Latest writings -->
 	{#if posts.length > 0}
 		{@const post = posts[0]}
