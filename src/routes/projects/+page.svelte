@@ -2,6 +2,8 @@
 	import { base } from '$app/paths';
 	import * as config from '$lib/config';
 
+	let currentImageIndex: Record<string, number> = {};
+
 	const projects = [
 		{
 			name: 'sweet-home',
@@ -10,7 +12,7 @@
 			timeline: 'May 2025 — Present',
 			url: 'https://github.com/geardy47/sweet-home',
 			demo: 'https://gentashandi.com',
-			image: `${base}/images/projects/sweet-home-home.png`,
+			images: [`${base}/images/projects/sweet-home-home.png`],
 			description:
 				'Personal website and blog built with SvelteKit. Features a GitHub-inspired design system, dark mode, and markdown-powered content with Shiki syntax highlighting.',
 			highlights: [
@@ -28,7 +30,7 @@
 			timeline: '2025 — Present',
 			url: 'https://github.com/geardy47/stitch-and-fit',
 			demo: 'https://stitch-and-fit.vercel.app',
-			image: `${base}/images/projects/stitch-and-fit.png`,
+			images: [`${base}/images/projects/stitch-and-fit.png`],
 			description:
 				'Clothing E-Commerce MVP with a customer-facing storefront and a separate admin panel for managing products, orders, and inventory.',
 			highlights: [
@@ -46,7 +48,7 @@
 			timeline: '2025 — Present',
 			url: 'https://github.com/geardy47/stitch-and-fit',
 			demo: 'https://stitch-and-fit.vercel.app/admin',
-			image: `${base}/images/projects/stitch-and-fit-admin.png`,
+			images: [`${base}/images/projects/stitch-and-fit-admin.png`],
 			description:
 				'Admin dashboard for the Stitch & Fit e-commerce platform. Manages products, orders, inventory, and user roles with a dedicated admin interface.',
 			highlights: [
@@ -58,13 +60,35 @@
 			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Vercel', 'PostgreSQL']
 		},
 		{
+			name: 'Raya App',
+			role: 'Tech Lead & Mobile Developer',
+			status: 'Active',
+			timeline: 'May 2022 — Present',
+			url: 'https://github.com/geardy47',
+			demo: 'https://apps.apple.com/sg/app/raya-digital-bank/id1627393834',
+			images: [
+				`${base}/images/projects/raya-appstore.png`,
+				`${base}/images/projects/raya-playstore.png`
+			],
+			description:
+				'Digital banking app by Bank Raya, serving millions of users across Indonesia. Built and maintained as a core member of the mobile engineering team.',
+			highlights: [
+				'Transaction feature development and optimization',
+				'Payment gateway integration (QRIS, transfer, etc.)',
+				'Visa card management integration',
+				'Release management to Play Store & App Store',
+				'Git repository management and code review'
+			],
+			tags: ['Flutter', 'Dart', 'Firebase', 'Kotlin', 'Swift', 'Visa', 'Payment Gateway']
+		},
+		{
 			name: 'Manatek',
 			role: 'Solo',
 			status: 'Archived',
 			timeline: 'Jan 2019 — Apr 2019',
 			url: 'https://github.com/geardy47/Manatek',
 			demo: null,
-			image: `${base}/images/projects/manatek-placeholder.svg`,
+			images: [`${base}/images/projects/manatek-placeholder.svg`],
 			description:
 				'Pharmacy management application (Manajemen Apotek) built as a university project. Handles inventory tracking, drug stock management, and prescription records.',
 			highlights: [
@@ -75,6 +99,18 @@
 			tags: ['PHP', 'MySQL', 'Bootstrap']
 		}
 	];
+
+	function prevImage(projectName: string) {
+		const project = projects.find(p => p.name === projectName);
+		if (!project) return;
+		currentImageIndex[projectName] = ((currentImageIndex[projectName] ?? 0) - 1 + project.images.length) % project.images.length;
+	}
+
+	function nextImage(projectName: string) {
+		const project = projects.find(p => p.name === projectName);
+		if (!project) return;
+		currentImageIndex[projectName] = ((currentImageIndex[projectName] ?? 0) + 1) % project.images.length;
+	}
 </script>
 
 <svelte:head>
@@ -87,16 +123,12 @@
 	<div class="not-prose space-y-6">
 		{#each projects as project (project.name)}
 			<article class="rounded-lg border-border p-5 sm:p-6 border">
-				<!-- Image: centered padded showcase -->
-				{#if project.image}
-					<div class="flex items-center justify-center rounded-lg bg-muted/30 p-4 sm:p-6 mb-5 sm:mb-6">
+
+				<!-- Image showcase with carousel -->
+				{#if project.images.length > 0}
+					<div class="flex items-center justify-center rounded-lg bg-muted/30 p-4 sm:p-6 mb-5 sm:mb-6 relative">
 						{#if project.name === 'sweet-home' || project.name === 'stitch-and-fit' || project.name === 'stitch-and-fit Admin'}
-							<a
-								href={project.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="block w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm"
-							>
+							<div class="w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm">
 								<div class="bg-muted/40">
 									<!-- Browser chrome -->
 									<div class="flex items-center gap-1.5 border-border border-b px-4 py-2">
@@ -104,29 +136,44 @@
 										<span class="inline-block size-2.5 rounded-full bg-yellow-500"></span>
 										<span class="inline-block size-2.5 rounded-full bg-green-500"></span>
 										<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">
-											{project.name === 'sweet-home' ? 'gentashandi.com' : project.name === 'stitch-and-fit Admin' ? 'stitch-and-fit.vercel.app/admin' : 'stitch-and-fit.vercel.app'}
+											{project.name === 'sweet-home' ? 'gentashandi.com' : project.name === 'stitch-and-fit Admin' ? 'stitch-and-fit.vercel.app/admin/products' : 'stitch-and-fit.vercel.app'}
 										</span>
 									</div>
-									<img
-										src={project.image}
-										alt="{project.name} screenshot"
-										class="w-full"
-									/>
+									<a href={project.demo || project.url} target="_blank" rel="noopener noreferrer">
+										<img src={project.images[(currentImageIndex[project.name] ?? 0)]} alt="{project.name} screenshot" class="w-full" />
+									</a>
 								</div>
-							</a>
+							</div>
 						{:else}
-							<a
-								href={project.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="block w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm"
-							>
-								<img
-									src={project.image}
-									alt="{project.name} screenshot"
-									class="w-full"
-								/>
-							</a>
+							<div class="w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm">
+								<a href={project.demo || project.url} target="_blank" rel="noopener noreferrer">
+									<img src={project.images[(currentImageIndex[project.name] ?? 0)]} alt="{project.name} screenshot" class="w-full" />
+								</a>
+							</div>
+						{/if}
+
+						<!-- Prev/Next buttons -->
+						{#if project.images.length > 1}
+							<button
+								onclick={() => prevImage(project.name)}
+								class="absolute left-2 top-1/2 -translate-y-1/2 flex size-8 items-center justify-center rounded-full bg-background/80 text-muted shadow-sm ring-1 ring-border hover:bg-background hover:text-fg transition-colors"
+								aria-label="Previous image"
+							>&larr;</button>
+							<button
+								onclick={() => nextImage(project.name)}
+								class="absolute right-2 top-1/2 -translate-y-1/2 flex size-8 items-center justify-center rounded-full bg-background/80 text-muted shadow-sm ring-1 ring-border hover:bg-background hover:text-fg transition-colors"
+								aria-label="Next image"
+							>&rarr;</button>
+							<!-- Dots indicator -->
+							<div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+								{#each project.images as _, i}
+									<button
+										onclick={() => { currentImageIndex[project.name] = i; }}
+										class="size-1.5 rounded-full transition-colors {i === (currentImageIndex[project.name] ?? 0) ? 'bg-foreground' : 'bg-muted-foreground/40'}"
+										aria-label="Go to image {i + 1}"
+									></button>
+								{/each}
+							</div>
 						{/if}
 					</div>
 				{/if}
