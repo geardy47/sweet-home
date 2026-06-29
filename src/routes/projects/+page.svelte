@@ -6,7 +6,7 @@
 
 	const projects = [
 		{
-			name: 'sweet-home',
+			name: 'Portfolio',
 			role: 'Solo',
 			status: 'Active',
 			timeline: 'May 2025 — Present',
@@ -24,7 +24,7 @@
 			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'mdsvex', 'Shiki', 'GitHub Pages']
 		},
 		{
-			name: 'stitch-and-fit',
+			name: 'Stitch and Fit',
 			role: 'Solo',
 			status: 'Active',
 			timeline: '2025 — Present',
@@ -42,7 +42,7 @@
 			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Vercel', 'PostgreSQL']
 		},
 		{
-			name: 'stitch-and-fit Admin',
+			name: 'Stitch and Fit Admin',
 			role: 'Solo',
 			status: 'Active',
 			timeline: '2025 — Present',
@@ -66,6 +66,7 @@
 			timeline: 'May 2022 — Present',
 			url: 'https://github.com/geardy47',
 			demo: 'https://apps.apple.com/sg/app/raya-digital-bank/id1627393834',
+			noGitHub: true,
 			images: [
 				`${base}/images/projects/raya-appstore.png`,
 				`${base}/images/projects/raya-playstore.png`
@@ -80,6 +81,25 @@
 				'Git repository management and code review'
 			],
 			tags: ['Flutter', 'Dart', 'Firebase', 'Kotlin', 'Swift', 'Visa', 'Payment Gateway']
+		},
+		{
+			name: 'Budget Buddy',
+			role: 'Solo',
+			status: 'Active',
+			timeline: '2025 — Present',
+			url: 'https://github.com/geardy47/budgetbuddy',
+			demo: 'https://budget-buddy-blush-two.vercel.app/transactions',
+			images: [`${base}/images/projects/budget-buddy.png`],
+			description:
+				'Personal finance tracking app for managing transactions, budgets, accounts, and savings goals. Built with a focus on simplicity and mobile-first UX.',
+			highlights: [
+				'Transaction tracking with categorization',
+				'Budget planning and monitoring',
+				'Multi-account management',
+				'Savings goals with progress tracking',
+				'Responsive mobile-first design'
+			],
+			tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Vercel']
 		},
 		{
 			name: 'Manatek',
@@ -127,7 +147,7 @@
 				<!-- Image showcase with carousel -->
 				{#if project.images.length > 0}
 					<div class="flex items-center justify-center rounded-lg bg-muted/30 p-4 sm:p-6 mb-5 sm:mb-6 relative">
-						{#if project.name === 'sweet-home' || project.name === 'stitch-and-fit' || project.name === 'stitch-and-fit Admin'}
+						{#if project.name === 'Portfolio' || project.name === 'Stitch and Fit' || project.name === 'Stitch and Fit Admin' || project.name === 'Budget Buddy'}
 							<div class="w-full overflow-hidden rounded-lg ring-1 ring-border/50 shadow-sm">
 								<div class="bg-muted/40">
 									<!-- Browser chrome -->
@@ -136,7 +156,7 @@
 										<span class="inline-block size-2.5 rounded-full bg-yellow-500"></span>
 										<span class="inline-block size-2.5 rounded-full bg-green-500"></span>
 										<span class="text-muted ml-2 inline-block h-5 flex-1 rounded bg-muted/30 text-[10px] leading-5 text-center">
-											{project.name === 'sweet-home' ? 'gentashandi.com' : project.name === 'stitch-and-fit Admin' ? 'stitch-and-fit.vercel.app/admin/products' : 'stitch-and-fit.vercel.app'}
+											{project.name === 'Portfolio' ? 'gentashandi.com' : project.name === 'Stitch and Fit Admin' ? 'stitch-and-fit.vercel.app/admin/products' : project.name === 'Stitch and Fit' ? 'stitch-and-fit.vercel.app' : project.name === 'Budget Buddy' ? 'budget-buddy-blush-two.vercel.app/transactions' : ''}
 										</span>
 									</div>
 									<a href={project.demo || project.url} target="_blank" rel="noopener noreferrer">
@@ -242,14 +262,16 @@
 
 					<!-- Links -->
 					<div class="flex flex-wrap gap-3">
-						<a
-							href={project.url}
-							class="text-xs text-muted hover:text-fg no-underline hover:underline"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							GitHub &rarr;
-						</a>
+						{#if !project.noGitHub}
+							<a
+								href={project.url}
+								class="text-xs text-muted hover:text-fg no-underline hover:underline"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								GitHub &rarr;
+							</a>
+						{/if}
 						{#if project.demo}
 							<a
 								href={project.demo}
