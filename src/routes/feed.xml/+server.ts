@@ -32,13 +32,14 @@ export async function GET() {
 			<guid isPermaLink="true">${siteUrl}${base}/${post.slug}</guid>
 			<description>${escapeXml(post.description)}</description>
 			<pubDate>${rfc2822(post.date)}</pubDate>
+			${post.readingTime ? `<itunes:duration>${escapeXml(post.readingTime)}</itunes:duration>` : ''}
 			${post.categories.map((cat) => `<category>${escapeXml(cat)}</category>`).join('\n\t\t\t')}
 		</item>`
 		)
 		.join('');
 
 	const xml = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
 	<channel>
 		<title>${escapeXml(title)}</title>
 		<link>${siteUrl}${base}</link>
